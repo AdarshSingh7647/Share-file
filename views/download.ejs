@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<style>
+    *{
+        background-color:rgb(190, 190, 212);
+    }
+    .download{
+        display: flex;
+        justify-content: center;
+        background-color:rgb(190, 190, 212);
+    }
+    .card-header{
+        font-weight: bold;
+        font-size: larger;
+    }
+</style>
+<body>
+    <div class="card text-center"  class="download" style="margin-top:15%;background-color:rgb(190, 190, 212);">
+        <% if(locals.error){ %>
+            <h4>
+                <%= locals.error %> 😏
+            </h4>
+            <% } else { %>
+        <div class="card-header">
+             Download File 
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Your file is ready to download</h5>
+          <div class="download__meta">
+            <h4>
+                <%= fileName %>
+            </h4>
+            <small>
+                <%= parseInt(fileSize/1000) %> KB
+            </small>
+        </div>
+          <a href="<%= downloadLink %>" class="btn btn-primary" class="btn btn-secondary btn-lg">Download File</a>
+        </div>
+        <% } %>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
